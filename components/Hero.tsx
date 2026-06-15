@@ -124,7 +124,7 @@ export const Hero = () => {
             View Projects <ArrowRight className="w-5 h-5" />
           </a>
           <a
-            href="/MyResume.pdf"
+            href="/Resume.pdf"
             download="Sohan_Saha_Resume.pdf"
             className="flex items-center gap-2 px-8 py-4 glassmorphism rounded-full font-bold hover:bg-white/10 transition-all hover:scale-105 border-white/20"
           >
