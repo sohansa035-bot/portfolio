@@ -94,7 +94,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-black tracking-tighter mb-8 text-white drop-shadow-2xl flex flex-col items-center gap-2"
+          className="text-6xl md:text-8xl font-black tracking-tighter mb-8 text-black dark:text-white drop-shadow-2xl flex flex-col items-center gap-2"
         >
           <span>Hello I&apos;m</span>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
@@ -106,7 +106,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-xl md:text-2xl text-neutral-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed"
         >
           Building Intelligent Solutions Through AI, Innovation, and Leadership.
         </motion.h2>
@@ -119,14 +119,14 @@ export const Hero = () => {
         >
           <a
             href="#projects"
-            className="flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-neutral-200 transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+            className="flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,0,0,0.1)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
           >
             View Projects <ArrowRight className="w-5 h-5" />
           </a>
           <a
             href="/Resume.pdf"
             download="Sohan_Saha_Resume.pdf"
-            className="flex items-center gap-2 px-8 py-4 glassmorphism rounded-full font-bold hover:bg-white/10 transition-all hover:scale-105 border-white/20"
+            className="flex items-center gap-2 px-8 py-4 glassmorphism rounded-full font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all hover:scale-105 border-black/10 dark:border-white/20 text-black dark:text-white"
           >
             Download Resume <Download className="w-5 h-5" />
           </a>
@@ -136,15 +136,15 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="flex items-center justify-center gap-8 mt-16 text-neutral-400"
+          className="flex items-center justify-center gap-8 mt-16 text-neutral-600 dark:text-neutral-400"
         >
-          <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
+          <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
           </a>
-          <a href="https://www.linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
+          <a href="https://www.linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>
-          <a href="#contact" className="hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
+          <a href="#contact" className="hover:text-black dark:hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
             <Mail className="w-6 h-6" />
           </a>
         </motion.div>

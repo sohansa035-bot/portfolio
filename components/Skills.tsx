@@ -55,16 +55,16 @@ export const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div 
               key={idx} 
-              className={`glassmorphism p-6 rounded-3xl relative overflow-hidden group transition-all duration-500 bg-white/5 hover:bg-white/10 border border-white/10 ${category.boxHover} ${idx === 3 ? "md:col-span-2 lg:col-span-2" : ""}`}
+              className={`glassmorphism p-6 rounded-3xl relative overflow-hidden group transition-all duration-500 bg-black/5 hover:bg-black/10 border border-black/10 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 ${category.boxHover} ${idx === 3 ? "md:col-span-2 lg:col-span-2" : ""}`}
             >
               <div className={`absolute top-0 right-0 w-64 h-64 opacity-70 group-hover:opacity-100 transition-all duration-500 rounded-full blur-[60px] -mr-16 -mt-16 pointer-events-none ${category.glow}`} />
               
-              <h3 className="text-lg font-bold text-white mb-4 relative z-10">{category.title}</h3>
+              <h3 className="text-lg font-bold text-black dark:text-white mb-4 relative z-10">{category.title}</h3>
               <div className="flex flex-wrap gap-2 relative z-10">
                 {category.skills.map((skill, i) => (
                   <span 
                     key={i} 
-                    className={`px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-neutral-300 transition-colors cursor-default ${category.tagHover}`}
+                    className={`px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full text-sm text-neutral-700 dark:text-neutral-300 transition-colors cursor-default ${category.tagHover}`}
                   >
                     {skill}
                   </span>

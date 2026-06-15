@@ -105,7 +105,7 @@ export const Projects = () => {
               rel="noopener noreferrer"
               key={idx}
               whileHover={{ y: -5 }}
-              className="glassmorphism rounded-3xl p-8 border border-white/10 relative overflow-hidden group flex flex-col h-full block"
+              className="glassmorphism rounded-3xl p-8 border border-black/10 dark:border-white/10 relative overflow-hidden group flex flex-col h-full block"
             >
               <div className={`absolute top-0 right-0 w-64 h-64 ${project.style.glow} rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity opacity-70 group-hover:opacity-100`} />
               
@@ -114,13 +114,13 @@ export const Projects = () => {
                   <project.icon className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-1">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-black dark:text-white mb-1">{project.title}</h3>
                   {project.subtitle && <p className={`${project.style.subtitleColor} text-xs font-medium`}>{project.subtitle}</p>}
                 </div>
               </div>
 
               <div className="relative z-10 flex-grow">
-                <p className="text-neutral-300 leading-relaxed text-sm mb-6">
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-sm mb-6">
                   {project.description}
                 </p>
               </div>
