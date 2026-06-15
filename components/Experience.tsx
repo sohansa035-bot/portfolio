@@ -59,7 +59,7 @@ export const Experience = () => {
                 <Briefcase className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-1 text-black dark:text-white">Technology Intern</h3>
+                <h3 className="text-2xl font-bold mb-1 text-black dark:text-white">Technology and Digital Operation Intern</h3>
                 <div className="text-indigo-600 dark:text-indigo-400 text-sm font-medium">OptCell Global</div>
               </div>
             </div>
