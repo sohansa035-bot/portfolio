@@ -44,12 +44,12 @@ export const Skills = () => {
 
   const getColorClasses = (color: string) => {
     switch (color) {
-      case 'blue': return { bg: 'bg-blue-500/10', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-500/20', hover: 'hover:border-blue-500/50' };
-      case 'emerald': return { bg: 'bg-emerald-500/10', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-500/20', hover: 'hover:border-emerald-500/50' };
-      case 'purple': return { bg: 'bg-purple-500/10', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-500/20', hover: 'hover:border-purple-500/50' };
-      case 'orange': return { bg: 'bg-orange-500/10', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-500/20', hover: 'hover:border-orange-500/50' };
-      case 'rose': return { bg: 'bg-rose-500/10', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-500/20', hover: 'hover:border-rose-500/50' };
-      default: return { bg: 'bg-neutral-500/10', text: 'text-neutral-600 dark:text-neutral-400', border: 'border-neutral-500/20', hover: 'hover:border-neutral-500/50' };
+      case 'blue': return { bg: 'bg-blue-500/10', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-500/20', hover: 'hover:border-blue-500/50', tagHover: 'hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-400' };
+      case 'emerald': return { bg: 'bg-emerald-500/10', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-500/20', hover: 'hover:border-emerald-500/50', tagHover: 'hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400' };
+      case 'purple': return { bg: 'bg-purple-500/10', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-500/20', hover: 'hover:border-purple-500/50', tagHover: 'hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-400' };
+      case 'orange': return { bg: 'bg-orange-500/10', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-500/20', hover: 'hover:border-orange-500/50', tagHover: 'hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400' };
+      case 'rose': return { bg: 'bg-rose-500/10', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-500/20', hover: 'hover:border-rose-500/50', tagHover: 'hover:border-rose-500/50 hover:bg-rose-500/10 hover:text-rose-600 dark:hover:text-rose-400' };
+      default: return { bg: 'bg-neutral-500/10', text: 'text-neutral-600 dark:text-neutral-400', border: 'border-neutral-500/20', hover: 'hover:border-neutral-500/50', tagHover: 'hover:border-neutral-500/50 hover:bg-neutral-500/10 hover:text-neutral-600 dark:hover:text-neutral-400' };
     }
   };
 
@@ -85,7 +85,7 @@ export const Skills = () => {
                   {category.skills.map((skill, i) => (
                     <span 
                       key={i} 
-                      className={`px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300 transition-colors cursor-default`}
+                      className={`px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300 transition-all duration-300 cursor-default ${colors.tagHover}`}
                     >
                       {skill}
                     </span>
