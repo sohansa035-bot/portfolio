@@ -16,12 +16,12 @@ export const Experience = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Leadership Box */}
-          <div className="glassmorphism p-8 rounded-3xl group hover:border-blue-500/50 transition-colors">
-            <div className="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-6">
+          <div className="p-8 rounded-3xl group transition-all duration-300 border border-black/10 dark:border-white/10 hover:-translate-y-1 bg-blue-50/80 dark:bg-white/5 hover:border-blue-500/50 hover:bg-blue-100/80 dark:hover:bg-blue-500/[0.02] hover:shadow-xl backdrop-blur-xl flex flex-col">
+            <div className="w-12 h-12 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 shadow-sm">
               <Users className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold mb-2 text-black dark:text-white">Technical Co-Head</h3>
-            <div className="text-blue-400 font-medium mb-6">IEEE TEMS REVA University</div>
+            <div className="text-blue-600 dark:text-blue-400 font-medium mb-6">IEEE TEMS REVA University</div>
             
             <div className="space-y-4">
               <div>
@@ -32,25 +32,25 @@ export const Experience = () => {
                   <li>Drive innovation and foster a culture of technology awareness on campus.</li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-black/10 dark:border-white/10">
+              <div className="pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
                 <h4 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold mb-2">Skills & Outcomes</h4>
                 <div className="flex flex-wrap gap-2 text-xs mt-2">
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Technical Leadership</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Event Organization</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Mentorship</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Public Speaking</span>
+                  <span className="bg-blue-500/10 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full border border-blue-500/20 transition-all hover:bg-blue-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]">Technical Leadership</span>
+                  <span className="bg-blue-500/10 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full border border-blue-500/20 transition-all hover:bg-blue-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]">Event Organization</span>
+                  <span className="bg-blue-500/10 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full border border-blue-500/20 transition-all hover:bg-blue-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]">Mentorship</span>
+                  <span className="bg-blue-500/10 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full border border-blue-500/20 transition-all hover:bg-blue-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]">Public Speaking</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Internship Box */}
-          <div className="glassmorphism p-8 rounded-3xl group hover:border-blue-500/50 transition-colors">
-            <div className="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-6">
+          <div className="p-8 rounded-3xl group transition-all duration-300 border border-black/10 dark:border-white/10 hover:-translate-y-1 bg-indigo-50/80 dark:bg-white/5 hover:border-indigo-500/50 hover:bg-indigo-100/80 dark:hover:bg-indigo-500/[0.02] hover:shadow-xl backdrop-blur-xl flex flex-col">
+            <div className="w-12 h-12 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center mb-6 shadow-sm">
               <Briefcase className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold mb-2 text-black dark:text-white">Technology Intern</h3>
-            <div className="text-blue-400 font-medium mb-6">OptCell Global</div>
+            <div className="text-indigo-600 dark:text-indigo-400 font-medium mb-6">OptCell Global</div>
             
             <div className="space-y-4">
               <div>
@@ -61,14 +61,14 @@ export const Experience = () => {
                   <li>Gained hands-on exposure to industry workflows and technology-driven environments.</li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-black/10 dark:border-white/10">
+              <div className="pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
                 <h4 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold mb-2">Skills & Outcomes</h4>
                 <div className="flex flex-wrap gap-2 text-xs mt-2">
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Web Development</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Project Coordination</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Leadership</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Analytical Thinking</span>
-                  <span className="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">Agile Workflows</span>
+                  <span className="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/20 transition-all hover:bg-indigo-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]">Web Development</span>
+                  <span className="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/20 transition-all hover:bg-indigo-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]">Project Coordination</span>
+                  <span className="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/20 transition-all hover:bg-indigo-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]">Leadership</span>
+                  <span className="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/20 transition-all hover:bg-indigo-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]">Analytical Thinking</span>
+                  <span className="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/20 transition-all hover:bg-indigo-500/20 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]">Agile Workflows</span>
                 </div>
               </div>
             </div>
