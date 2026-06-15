@@ -30,7 +30,7 @@ export const About = () => {
               I am currently serving as the <strong>Technical Co-Head of IEEE TEMS REVA University</strong>, where I contribute to technical initiatives, event organization, project development, and innovation-driven activities.
             </p>
             <p>
-              My interests span Artificial Intelligence, Machine Learning, Data Science, Generative AI, Open Source Development, and Emerging Technologies. I enjoy transforming ideas into practical solutions, exploring cutting-edge technologies, and continuously developing both technical and leadership skills.
+              My interests span Artificial Intelligence, Machine Learning, Data Science, Generative AI, Open Source Development, Entrepreneurship, and Emerging Technologies. I enjoy transforming ideas into practical solutions, exploring cutting-edge technologies, and continuously developing both technical and leadership skills.
             </p>
             <p className="text-blue-600 dark:text-blue-400 font-medium">
               My long-term vision is to become an AI Engineer capable of building intelligent systems that solve real-world challenges and create meaningful impact.
