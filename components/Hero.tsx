@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
+import { Typewriter } from "./Typewriter";
 
 export const Hero = () => {
   return (
@@ -84,9 +85,9 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <span className="px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 text-blue-300 text-sm font-semibold mb-8 inline-flex items-center gap-2.5 shadow-[0_0_20px_rgba(59,130,246,0.15)] backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(96,165,250,1)]" />
-            AI & Machine Learning Student
+          <span className="px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-300 text-sm font-semibold mb-8 inline-flex items-center gap-2.5 shadow-[0_0_20px_rgba(59,130,246,0.15)] backdrop-blur-md min-w-[280px] justify-center">
+            <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,1)] shrink-0" />
+            <Typewriter words={["AI & Machine Learning Student", "Tech Lead @ IEEE TEMS", "Aspiring Entrepreneur", "Open Source Developer"]} delay={2500} />
           </span>
         </motion.div>
 
