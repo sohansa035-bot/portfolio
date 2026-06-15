@@ -15,7 +15,7 @@ export const About = () => {
         <h2 className="text-3xl md:text-5xl font-bold mb-12 text-gradient">About Me</h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 text-lg text-neutral-700 dark:text-neutral-300 text-justify">
+          <div className="space-y-6 text-lg text-neutral-700 dark:text-neutral-300 text-left text-pretty">
             
             {/* Profile Avatar & Intro Card */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-black/5 dark:bg-white/5 p-6 rounded-3xl border border-black/10 dark:border-white/10 shadow-lg">
