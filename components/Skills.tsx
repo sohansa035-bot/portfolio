@@ -55,9 +55,9 @@ export const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div 
               key={idx} 
-              className={`glassmorphism p-6 rounded-3xl relative overflow-hidden group transition-all duration-500 bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 ${category.boxHover} ${idx === 3 ? "md:col-span-2 lg:col-span-2" : ""}`}
+              className={`glassmorphism p-6 rounded-3xl relative overflow-hidden group transition-all duration-500 bg-white/5 hover:bg-white/10 border border-white/10 ${category.boxHover} ${idx === 3 ? "md:col-span-2 lg:col-span-2" : ""}`}
             >
-              <div className={`absolute top-0 right-0 w-56 h-56 opacity-60 group-hover:opacity-100 transition-all duration-500 rounded-full blur-[50px] -mr-16 -mt-16 pointer-events-none ${category.glow}`} />
+              <div className={`absolute top-0 right-0 w-64 h-64 opacity-70 group-hover:opacity-100 transition-all duration-500 rounded-full blur-[60px] -mr-16 -mt-16 pointer-events-none ${category.glow}`} />
               
               <h3 className="text-lg font-bold text-white mb-4 relative z-10">{category.title}</h3>
               <div className="flex flex-wrap gap-2 relative z-10">
