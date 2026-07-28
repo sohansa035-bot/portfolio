@@ -17,6 +17,8 @@ export default function Home() {
       
       <Hero />
       
+      <div className="w-full h-32 md:h-64" />
+      
       <ScrollReveal>
         <PersonalDetails />
       </ScrollReveal>

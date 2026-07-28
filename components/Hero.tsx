@@ -29,7 +29,7 @@ export const Hero = () => {
   const parallaxY = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [-30, 30]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full px-6 bg-[#FDFBF7]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full px-6 py-32 bg-[#FDFBF7]">
       
       {/* Animated Aurora Mesh Gradient with Parallax */}
       <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -86,7 +86,7 @@ export const Hero = () => {
         </motion.div>
 
         {/* Cinematic Character Stagger for Name */}
-        <div className="relative overflow-hidden mb-6 flex justify-center perspective-1000">
+        <div className="relative overflow-hidden mb-6 md:mb-12 flex justify-center perspective-1000">
           <h1
             className="flex text-[12vw] md:text-[10vw] leading-none font-black uppercase"
             style={{ letterSpacing: "-0.04em" }}
@@ -115,7 +115,7 @@ export const Hero = () => {
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
-          className="text-2xl md:text-5xl font-black tracking-tight text-[var(--text-muted)] mb-16 uppercase"
+          className="text-2xl md:text-5xl font-black tracking-tight text-[var(--text-muted)] mb-16 md:mb-32 uppercase"
         >
           Building <span className="text-[var(--primary-accent)]">Intelligent</span> Systems.
         </motion.h2>
