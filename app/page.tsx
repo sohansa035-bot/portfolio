@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { JourneyCompanion } from "@/components/JourneyCompanion";
 import { GlobalAmbient } from "@/components/GlobalAmbient";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { About } from "@/components/About";
+import { PersonalDetails } from "@/components/PersonalDetails";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
       
       <ScrollReveal>
-        <About />
+        <PersonalDetails />
       </ScrollReveal>
       
       <ScrollReveal>
