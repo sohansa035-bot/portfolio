@@ -11,11 +11,17 @@ export default {
     extend: {
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)",
+        surface: "var(--surface)",
+        card: "var(--card)",
         accent: {
-          DEFAULT: "var(--accent)",
-          glow: "var(--accent-glow)"
-        }
+          DEFAULT: "var(--primary-accent)",
+          secondary: "var(--secondary-accent)"
+        },
+        text: {
+          main: "var(--text-main)",
+          muted: "var(--text-muted)",
+        },
+        success: "var(--success)"
       },
     },
   },

@@ -1,72 +1,69 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-import { Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
 
   const links = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Build", href: "/build" },
+    { name: "Research", href: "/research" },
+    { name: "Lead", href: "/lead" },
   ];
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest < 300) {
+      setIsVisible(true);
+    } else {
+      if (latest > lastScrollY && latest > 300) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    }
+    setLastScrollY(latest);
+  });
+
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/70 dark:bg-black/50 backdrop-blur-xl border-b border-black/5 dark:border-white/10 py-4" : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-black dark:text-white tracking-tighter">
-          Sohan<span className="text-blue-500">.</span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4">
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun className="w-5 h-5 text-neutral-400" /> : <Moon className="w-5 h-5 text-neutral-600" />}
-            </button>
-          )}
-          <a
-            href="#contact"
-            className="hidden md:block px-5 py-2 text-sm font-medium bg-black dark:bg-white text-white dark:text-black rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
-          >
-            Let&apos;s Talk
-          </a>
-        </div>
-      </div>
-    </motion.header>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.header
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="fixed top-8 left-1/2 -translate-x-1/2 z-[100]"
+        >
+          <nav className="flex items-center gap-2 p-2 bg-white border-4 border-[var(--text-main)] rounded-full brutal-shadow">
+            {links.map((link) => {
+              const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/");
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative px-6 py-3 text-sm md:text-base font-black uppercase transition-all rounded-full ${isActive ? 'text-white' : 'text-black hover:bg-gray-100'}`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavbarIndicator"
+                      className="absolute inset-0 bg-[var(--primary-accent)] rounded-full border-2 border-[var(--text-main)]"
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    />
+                  )}
+                  <span className="relative z-10 tracking-widest">{link.name}</span>
+                </Link>
+              );
+            })}
+          </nav>
+        </motion.header>
+      )}
+    </AnimatePresence>
   );
 };

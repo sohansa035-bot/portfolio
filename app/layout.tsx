@@ -29,6 +29,9 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { CustomCursor } from "@/components/CustomCursor";
+import { FilmGrain } from "@/components/FilmGrain";
+import { ClientWrapper } from "@/components/ClientWrapper";
 
 export default function RootLayout({
   children,
@@ -43,10 +46,15 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <FilmGrain />
+          <CustomCursor />
+          <ClientWrapper>
+            {children}
+          </ClientWrapper>
         </ThemeProvider>
       </body>
     </html>

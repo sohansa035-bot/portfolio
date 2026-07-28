@@ -1,78 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, FileText, ArrowRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-6 w-full max-w-6xl mx-auto mb-20">
+    <section id="contact" className="py-32 px-6 w-full flex flex-col items-center text-center bg-[var(--primary-accent)] border-y-4 border-black relative overflow-hidden">
+      
+      {/* Background Marquee */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none whitespace-nowrap">
+        <h2 className="text-[30vw] font-black text-black">CONTACT</h2>
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10"
       >
-        <div className="grid md:grid-cols-2 gap-12">
+        <h2 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter text-black mb-6 leading-none text-outline" style={{ WebkitTextStroke: '4px black', color: 'white' }}>
+          Let&apos;s Build.
+        </h2>
+        
+        <p className="text-2xl md:text-4xl text-black font-black mb-16 max-w-3xl mx-auto uppercase leading-tight">
+          Whether it&apos;s a complex engineering problem or a visionary product, let&apos;s talk.
+        </p>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-20">
+          <a 
+            href="https://calendly.com/sohansa035" target="_blank" rel="noopener noreferrer"
+            className="group flex items-center gap-4 px-12 py-6 bg-black text-white border-2 border-black rounded-none font-black uppercase tracking-widest text-xl brutal-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all duration-300 z-50 relative pointer-events-auto"
+          >
+            Schedule a Call <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={3} />
+          </a>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+          <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
+            <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center bg-white brutal-shadow">
+              <GithubIcon className="w-10 h-10" />
+            </div>
+            <span className="text-sm uppercase tracking-widest font-black">GitHub</span>
+          </a>
           
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Let&apos;s Connect</h2>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-12 text-lg">
-              I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center text-blue-400">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-neutral-500 font-semibold uppercase tracking-wider">Email</div>
-                  <div className="text-black dark:text-white">sohansa035@gmail.com</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center text-blue-400">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-neutral-500 font-semibold uppercase tracking-wider">Location</div>
-                  <div className="text-black dark:text-white">Bengaluru, Karnataka, India</div>
-                </div>
-              </div>
+          <a href="https://linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
+            <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center bg-[#0A66C2] text-white brutal-shadow">
+              <LinkedinIcon className="w-10 h-10" />
             </div>
+            <span className="text-sm uppercase tracking-widest font-black">LinkedIn</span>
+          </a>
 
-            <div className="flex gap-4 mt-12">
-              <a href="https://www.linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </a>
-              <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sohansa035@gmail.com" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
+            <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center bg-[var(--secondary-accent)] text-white brutal-shadow">
+              <Mail className="w-10 h-10" strokeWidth={3} />
             </div>
-          </div>
+            <span className="text-sm uppercase tracking-widest font-black">Email</span>
+          </a>
 
-          {/* Direct Email Action */}
-          <div className="glassmorphism p-10 rounded-3xl flex flex-col justify-center items-center text-center border border-black/10 dark:border-white/10 relative overflow-hidden group">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-500/10 blur-[80px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <Mail className="w-10 h-10 text-blue-500 dark:text-blue-400" />
+          <a href="/Resume.pdf" target="_blank" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
+            <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center bg-[var(--success)] text-black brutal-shadow">
+              <FileText className="w-10 h-10" strokeWidth={3} />
             </div>
-            
-            <h3 className="text-3xl font-bold text-black dark:text-white mb-4">Direct Inquiry</h3>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-sm">
-              The fastest way to reach me is directly through email. I typically respond within 24 hours to all inquiries and opportunities.
-            </p>
-            <a 
-              href="mailto:sohansa035@gmail.com"
-              className="w-full sm:w-auto px-10 py-4 bg-black dark:bg-white text-white dark:text-black font-bold rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
-            >
-              Send an Email
-            </a>
-          </div>
-
+            <span className="text-sm uppercase tracking-widest font-black">Resume</span>
+          </a>
         </div>
       </motion.div>
     </section>

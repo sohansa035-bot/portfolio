@@ -1,71 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 px-6 w-full max-w-6xl mx-auto">
+    <section id="about" className="py-20 px-6 w-full max-w-6xl mx-auto flex flex-col gap-24 mt-12 mb-32">
+      
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+        className="max-w-4xl bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 text-gradient">About Me</h2>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 text-lg text-neutral-700 dark:text-neutral-300 text-justify hyphens-auto tracking-tight" lang="en">
-            
-            {/* Profile Avatar & Intro Card */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-black/5 dark:bg-white/5 p-6 rounded-3xl border border-black/10 dark:border-white/10 shadow-lg">
-              <div className="w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-black/10 dark:border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.2)] relative shrink-0 transition-transform hover:scale-105 duration-300">
-                <Image src="/mypic.jpeg" alt="Sohan Saha" fill className="object-cover" />
-              </div>
-              <p className="text-xl text-black dark:text-white leading-relaxed text-center md:text-left mt-2 md:mt-0">
-                Hello! I&apos;m <strong className="text-blue-500 dark:text-blue-400">Sohan Saha</strong>, a passionate Artificial Intelligence and Machine Learning student at REVA University.
-              </p>
-            </div>
-            <p>
-              I am currently serving as the <strong>Technical Co-Head of IEEE TEMS REVA University</strong>, where I contribute to technical initiatives, event organization, project development, and innovation-driven activities.
-            </p>
-            <p>
-              My interests span Artificial Intelligence, Machine Learning, Data Science, Generative AI, Open Source Development, Entrepreneurship, and Emerging Technologies. I enjoy transforming ideas into practical solutions, exploring cutting-edge technologies, and continuously developing both technical and leadership skills.
-            </p>
-            <p className="text-blue-600 dark:text-blue-400 font-medium">
-              My long-term vision is to become an AI Engineer capable of building intelligent systems that solve real-world challenges and create meaningful impact.
-            </p>
-          </div>
-
-          <div className="glassmorphism p-8 rounded-3xl space-y-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-[50px]" />
-            <h3 className="text-2xl font-semibold text-black dark:text-white">Education</h3>
-            <div>
-              <div className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-1">Bachelor of Technology (B.Tech)</div>
-              <div className="text-neutral-700 dark:text-neutral-300 font-medium mb-4">Artificial Intelligence & Machine Learning</div>
-              
-              <div className="space-y-3 text-sm text-neutral-600 dark:text-neutral-400">
-                <div className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
-                  <span>University</span>
-                  <span className="text-black dark:text-white">REVA University</span>
-                </div>
-                <div className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
-                  <span>Location</span>
-                  <span className="text-black dark:text-white">Bengaluru, India</span>
-                </div>
-                <div className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
-                  <span>Expected Graduation</span>
-                  <span className="text-black dark:text-white">2029</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Current Status</span>
-                  <span className="text-black dark:text-white font-medium bg-black/5 dark:bg-white/10 px-2 py-1 rounded">2nd Semester</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p className="absolute -top-6 left-12 bg-[var(--primary-accent)] text-white text-sm font-black tracking-widest uppercase px-6 py-2 border-4 border-black rounded-full brutal-shadow">01 // Why Engineering?</p>
+        <h3 className="text-3xl md:text-5xl font-bold leading-snug text-black mt-4">
+          I believe that code is the closest thing we have to <span className="bg-black text-white px-2 py-1 rounded-lg">magic</span>. Engineering isn&apos;t just about syntax; it&apos;s about architecting logic to bend reality and build solutions from pure thought.
+        </h3>
       </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+        className="max-w-4xl self-end md:text-right bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform rotate-1 relative"
+      >
+        <p className="absolute -top-6 right-12 bg-[var(--secondary-accent)] text-white text-sm font-black tracking-widest uppercase px-6 py-2 border-4 border-black rounded-full brutal-shadow">02 // Why AI?</p>
+        <h3 className="text-3xl md:text-5xl font-bold leading-snug text-black mt-4">
+          Because static systems are obsolete. I build <span className="bg-[var(--secondary-accent)] text-white px-2 py-1 rounded-lg">intelligent agents</span> that learn, adapt, and reason. The future belongs to software that thinks, and I intend to write it.
+        </h3>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+        className="max-w-4xl bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
+      >
+        <p className="absolute -top-6 left-12 bg-[var(--success)] text-black text-sm font-black tracking-widest uppercase px-6 py-2 border-4 border-black rounded-full brutal-shadow">03 // Why Robotics?</p>
+        <h3 className="text-3xl md:text-5xl font-bold leading-snug text-black mt-4">
+          Intelligence shouldn&apos;t be confined to screens. I am fascinated by bringing AI into the <span className="bg-[var(--success)] text-black px-2 py-1 rounded-lg">physical world</span>, bridging the gap between bits and atoms to create autonomous systems.
+        </h3>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+        className="max-w-4xl self-end md:text-right bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform rotate-1 relative"
+      >
+        <p className="absolute -top-6 right-12 bg-black text-white text-sm font-black tracking-widest uppercase px-6 py-2 border-4 border-black rounded-full brutal-shadow">04 // Why Product Development?</p>
+        <h3 className="text-3xl md:text-5xl font-bold leading-snug text-black mt-4">
+          Brilliant architecture is useless if nobody uses it. I don&apos;t just write code; I engineer <span className="text-[var(--primary-accent)] underline decoration-4 underline-offset-4">experiences</span> that solve real problems with uncompromising aesthetics and precision.
+        </h3>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+        className="max-w-4xl bg-[var(--primary-accent)] border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
+      >
+        <p className="absolute -top-6 left-12 bg-white text-black text-sm font-black tracking-widest uppercase px-6 py-2 border-4 border-black rounded-full brutal-shadow">05 // Why Entrepreneurship?</p>
+        <h3 className="text-3xl md:text-5xl font-bold leading-snug text-white mt-4" style={{ WebkitTextStroke: '1px black' }}>
+          Innovation requires execution. I build <span className="bg-black text-white px-2 py-1 rounded-lg" style={{ WebkitTextStroke: '0px' }}>ventures</span> that transform deep tech research into scalable real-world solutions. It&apos;s about bridging the gap between the lab and the market.
+        </h3>
+      </motion.div>
+
     </section>
   );
 };

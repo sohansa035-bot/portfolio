@@ -1,153 +1,172 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail } from "lucide-react";
-import { Typewriter } from "./Typewriter";
+import { motion, useSpring, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./Icons";
+import { useEffect } from "react";
+import { Magnetic } from "./Magnetic";
+import Link from "next/link";
+import { HeroParticles } from "./HeroParticles";
 
 export const Hero = () => {
+  const mouseX = useSpring(0, { stiffness: 50, damping: 20 });
+  const mouseY = useSpring(0, { stiffness: 50, damping: 20 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  const name = "SOHAN SAHA".split("");
+
+  // Subtle parallax effect mapped from the mouse spring
+  const parallaxX = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1000], [-30, 30]);
+  const parallaxY = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [-30, 30]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden w-full px-6">
-      {/* Complex Cybernetic Tech Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full px-6 bg-[#FDFBF7]">
+      
+      {/* Animated Aurora Mesh Gradient with Parallax */}
+      <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Deep Orange / Red Glow */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#FF4D00] mix-blend-multiply filter blur-[150px]"
+        />
+        {/* Cyan / Blue Glow */}
+        <motion.div 
+          animate={{ scale: [1, 1.5, 1], rotate: [0, -90, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-[#00F0FF] mix-blend-multiply filter blur-[150px]"
+        />
+        {/* Purple Center Glow */}
+        <motion.div 
+          animate={{ y: [0, -100, 0], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[30%] left-[30%] w-[50vw] h-[50vw] rounded-full bg-[#7000FF] mix-blend-multiply filter blur-[150px]"
+        />
+      </motion.div>
+
+      <HeroParticles />
+
+      {/* Cinematic Spotlight following cursor (Overlays the Mesh) */}
+      <motion.div 
+        className="pointer-events-none absolute inset-0 z-0 opacity-60 mix-blend-overlay"
+        style={{
+          background: "radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.8), transparent 60%)",
+          "--mouse-x": useTransform(mouseX, v => `${v}px`),
+          "--mouse-y": useTransform(mouseY, v => `${v}px`)
+        } as any}
+      />
+
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0" 
+           style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '100px 100px' }} 
+      />
+
+      <div className="max-w-7xl mx-auto z-10 w-full flex flex-col items-center justify-center text-center mt-20">
         
-        {/* Orbital Rings */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/10 rounded-full border-dashed"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-purple-500/10 rounded-full border-dotted"
-        />
-
-        {/* Data Stream Lasers */}
-        <motion.div 
-          animate={{ y: ["-100vh", "100vh"] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          className="absolute left-[20%] w-[1px] h-[400px] bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-40"
-        />
-        <motion.div 
-          animate={{ y: ["-100vh", "100vh"] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear", delay: 2 }}
-          className="absolute left-[70%] w-[1px] h-[300px] bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-40"
-        />
-        <motion.div 
-          animate={{ x: ["-100vw", "100vw"] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear", delay: 1 }}
-          className="absolute top-[30%] h-[1px] w-[500px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-30"
-        />
-
-        {/* Floating Data Nodes */}
-        {Array.from({ length: 20 }).map((_, i) => {
-          // Use seeded-like random for stable SSR hydration
-          const randomX = (i * 17) % 100;
-          const randomY = (i * 23) % 100;
-          const randomDelay = (i * 7) % 5;
-          const randomDuration = 5 + ((i * 3) % 5);
-          const size = 2 + ((i * 5) % 6);
-          
-          return (
-          <motion.div
-            key={i}
-            animate={{ 
-              y: [0, -150],
-              opacity: [0, 0.6, 0],
-              scale: [0.5, 1.2, 0.5]
-            }}
-            transition={{
-              duration: randomDuration,
-              repeat: Infinity,
-              delay: randomDelay,
-              ease: "easeInOut"
-            }}
-            className="absolute rounded-full bg-blue-400 blur-[1px]"
-            style={{
-              left: `${randomX}%`,
-              top: `${randomY}%`,
-              width: `${size}px`,
-              height: `${size}px`,
-              boxShadow: "0 0 15px rgba(96,165,250,0.8)"
-            }}
-          />
-        )})}
-
-        {/* Background Glowing Ambient Orbs */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-[80%] -translate-y-[60%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[150px] -z-10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-[20%] -translate-y-[40%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] -z-10" />
-      </div>
-
-      <div className="max-w-5xl mx-auto text-center z-10 pt-10">
-        
+        {/* Subtitle revealing first */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="flex items-center gap-4 mb-8"
         >
-          <span className="px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-300 text-sm font-semibold mb-8 inline-flex items-center gap-2.5 shadow-[0_0_20px_rgba(59,130,246,0.15)] backdrop-blur-md min-w-[280px] justify-center">
-            <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,1)] shrink-0" />
-            <Typewriter words={["AI & Machine Learning Student", "Tech Lead @ IEEE TEMS", "Aspiring Entrepreneur", "Open Source Developer"]} delay={2500} />
-          </span>
+          <div className="w-12 h-[2px] bg-black/20" />
+          <h2 className="text-sm md:text-base font-mono font-bold tracking-[0.4em] text-[var(--text-muted)] uppercase">
+            Product & AI Engineer
+          </h2>
+          <div className="w-12 h-[2px] bg-black/20" />
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-black tracking-tighter mb-8 text-black dark:text-white drop-shadow-2xl flex flex-col items-center gap-2"
-        >
-          <span>Hello I&apos;m</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-            Sohan Saha
-          </span>
-        </motion.h1>
+        {/* Cinematic Character Stagger for Name */}
+        <div className="relative overflow-hidden mb-6 flex justify-center perspective-1000">
+          <h1
+            className="flex text-[12vw] md:text-[10vw] leading-none font-black uppercase"
+            style={{ letterSpacing: "-0.04em" }}
+          >
+            {name.map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 150, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  duration: 1.2, 
+                  delay: 0.4 + (index * 0.05), 
+                  ease: [0.76, 0, 0.24, 1] 
+                }}
+                className="inline-block origin-bottom transform-gpu bg-clip-text text-transparent bg-gradient-to-br from-black via-gray-700 to-black"
+                style={{ filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1))" }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </h1>
+        </div>
 
+        {/* Core Identity Statement */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
+          className="text-2xl md:text-5xl font-black tracking-tight text-[var(--text-muted)] mb-16 uppercase"
         >
-          Building Intelligent Solutions Through AI, Innovation, and Leadership.
+          Building <span className="text-[var(--primary-accent)]">Intelligent</span> Systems.
         </motion.h2>
 
+        {/* Action Controls */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-5"
+          transition={{ duration: 1, delay: 1.5, ease: [0.76, 0, 0.24, 1] }}
+          className="flex flex-wrap items-center justify-center gap-6 z-50 relative"
         >
-          <a
-            href="#projects"
-            className="flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,0,0,0.1)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
-          >
-            View Projects <ArrowRight className="w-5 h-5" />
-          </a>
-          <a
-            href="/Resume.pdf"
-            download="Sohan_Saha_Resume.pdf"
-            className="flex items-center gap-2 px-8 py-4 glassmorphism rounded-full font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all hover:scale-105 border-black/10 dark:border-white/20 text-black dark:text-white"
-          >
-            Download Resume <Download className="w-5 h-5" />
-          </a>
+          <Magnetic>
+            <Link href="/build" className="group flex items-center gap-4 px-10 py-5 bg-black text-white rounded-none border-2 border-black font-black text-xl brutal-shadow transition-all duration-300 hover:shadow-none hover:translate-x-1 hover:translate-y-1 z-50 relative pointer-events-auto">
+              INITIALIZE ARCHITECTURE
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            </Link>
+          </Magnetic>
+          
+          <div className="flex gap-4">
+            <Magnetic>
+              <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-black text-black hover:bg-black hover:text-white transition-colors brutal-shadow">
+                <GithubIcon className="w-8 h-8" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="https://linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-colors brutal-shadow">
+                <LinkedinIcon className="w-8 h-8" />
+              </a>
+            </Magnetic>
+          </div>
         </motion.div>
 
-        <motion.div
+        {/* Scroll Indicator */}
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="flex items-center justify-center gap-8 mt-16 text-neutral-600 dark:text-neutral-400"
+          transition={{ duration: 1, delay: 2.5 }}
+          className="mt-32 flex flex-col items-center gap-4"
         >
-          <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          </a>
-          <a href="#contact" className="hover:text-black dark:hover:text-white hover:scale-110 transition-all p-3 glassmorphism rounded-2xl">
-            <Mail className="w-6 h-6" />
-          </a>
+          <span className="text-xs font-mono font-bold text-black/50 uppercase tracking-[0.3em]">Initialize Sequence</span>
+          <motion.div 
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-[2px] h-16 bg-black/20 relative overflow-hidden"
+          >
+             <motion.div 
+               animate={{ top: ["-100%", "100%"] }}
+               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+               className="absolute left-0 w-full h-1/2 bg-[#FF4D00]"
+             />
+          </motion.div>
         </motion.div>
       </div>
     </section>

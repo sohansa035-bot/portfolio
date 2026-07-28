@@ -1,99 +1,118 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code2, BrainCircuit, BarChart3, Wrench, Users } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Code2, BrainCircuit, Box, Wrench, Database } from "lucide-react";
 
 export const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming",
-      description: "Core languages and web technologies.",
-      icon: Code2,
-      skills: ["Python", "C", "HTML", "Web Development"],
-      color: "blue"
-    },
-    {
-      title: "AI & Machine Learning",
-      description: "Algorithms, predictive modeling, and generative AI.",
-      icon: BrainCircuit,
-      skills: ["Machine Learning Fundamentals", "Artificial Intelligence", "Predictive Analytics", "Generative AI"],
-      color: "emerald"
-    },
-    {
-      title: "Data Science",
-      description: "Data analysis, processing, and visualization.",
-      icon: BarChart3,
-      skills: ["NumPy", "Pandas", "Data Cleaning", "Data Analysis", "EDA", "Data Visualization"],
-      color: "purple"
-    },
-    {
-      title: "Dev Tools & Platforms",
-      description: "Version control, containerization, and AI platforms.",
-      icon: Wrench,
-      skills: ["Docker", "Git", "GitHub", "VS Code", "Jupyter", "Colab", "Hugging Face", "Lyzr AI", "OpenEnv"],
-      color: "orange"
-    },
-    {
-      title: "Soft Skills",
-      description: "Leadership, communication, and team management.",
-      icon: Users,
-      skills: ["Leadership", "Communication", "Team Management", "Public Speaking", "Problem Solving"],
-      color: "rose"
-    }
-  ];
+  const [activeTab, setActiveTab] = useState("AI");
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'blue': return { bg: 'bg-blue-500/10', boxBg: 'bg-blue-50/80 dark:bg-white/5', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-500/20', hover: 'hover:border-blue-500/50 hover:bg-blue-100/80 dark:hover:bg-blue-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(59,130,246,0.3),inset_0_0_15px_rgba(59,130,246,0.4)] hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-400' };
-      case 'emerald': return { bg: 'bg-emerald-500/10', boxBg: 'bg-emerald-50/80 dark:bg-white/5', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-500/20', hover: 'hover:border-emerald-500/50 hover:bg-emerald-100/80 dark:hover:bg-emerald-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(16,185,129,0.3),inset_0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400' };
-      case 'purple': return { bg: 'bg-purple-500/10', boxBg: 'bg-purple-50/80 dark:bg-white/5', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-500/20', hover: 'hover:border-purple-500/50 hover:bg-purple-100/80 dark:hover:bg-purple-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(168,85,247,0.3),inset_0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-400' };
-      case 'orange': return { bg: 'bg-orange-500/10', boxBg: 'bg-orange-50/80 dark:bg-white/5', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-500/20', hover: 'hover:border-orange-500/50 hover:bg-orange-100/80 dark:hover:bg-orange-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(249,115,22,0.3),inset_0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400' };
-      case 'rose': return { bg: 'bg-rose-500/10', boxBg: 'bg-rose-50/80 dark:bg-white/5', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-500/20', hover: 'hover:border-rose-500/50 hover:bg-rose-100/80 dark:hover:bg-rose-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(244,63,94,0.3),inset_0_0_15px_rgba(244,63,94,0.4)] hover:border-rose-500/50 hover:bg-rose-500/10 hover:text-rose-600 dark:hover:text-rose-400' };
-      default: return { bg: 'bg-neutral-500/10', boxBg: 'bg-neutral-50/80 dark:bg-white/5', text: 'text-neutral-600 dark:text-neutral-400', border: 'border-neutral-500/20', hover: 'hover:border-neutral-500/50 hover:bg-neutral-100/80 dark:hover:bg-neutral-500/[0.02] hover:shadow-xl', tagHover: 'hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(115,115,115,0.3),inset_0_0_15px_rgba(115,115,115,0.4)] hover:border-neutral-500/50 hover:bg-neutral-500/10 hover:text-neutral-600 dark:hover:text-neutral-400' };
+  const skillData: Record<string, any> = {
+    "AI": {
+      icon: BrainCircuit,
+      skills: [
+        { name: "PyTorch", projects: "OpenEnv, Yugēn", exp: "2 Years", related: "TensorFlow, Keras" },
+        { name: "Computer Vision", projects: "Yugēn", exp: "1.5 Years", related: "OpenCV, YOLOv8" },
+        { name: "Reinforcement Learning", projects: "OpenEnv", exp: "1 Year", related: "Stable Baselines3" }
+      ]
+    },
+    "Software": {
+      icon: Code2,
+      skills: [
+        { name: "Python", projects: "OpenEnv, AI-SOC", exp: "3 Years", related: "FastAPI, Flask" },
+        { name: "TypeScript", projects: "TerraSense, SMPS", exp: "2 Years", related: "JavaScript, Node.js" },
+        { name: "C++", projects: "Yugēn", exp: "2 Years", related: "Embedded C" }
+      ]
+    },
+    "Frontend": {
+      icon: Box,
+      skills: [
+        { name: "React / Next.js", projects: "TerraSense, SMPS", exp: "2 Years", related: "Redux, Zustand" },
+        { name: "Tailwind CSS", projects: "All Projects", exp: "2 Years", related: "Framer Motion, CSS3" }
+      ]
+    },
+    "Backend & Cloud": {
+      icon: Database,
+      skills: [
+        { name: "FastAPI", projects: "AI-SOC", exp: "1.5 Years", related: "Python" },
+        { name: "Docker", projects: "AI-SOC, OpenEnv", exp: "1 Year", related: "Kubernetes" },
+        { name: "Hugging Face", projects: "AI-SOC", exp: "1 Year", related: "AWS, GCP" }
+      ]
+    },
+    "Robotics": {
+      icon: Wrench,
+      skills: [
+        { name: "ESP32", projects: "Yugēn", exp: "1.5 Years", related: "Arduino, Raspberry Pi" },
+        { name: "Hardware Integration", projects: "Yugēn, TerraSense", exp: "1.5 Years", related: "Sensors, Actuators" }
+      ]
     }
   };
 
   return (
-    <section id="skills" className="py-24 px-6 w-full max-w-6xl mx-auto">
+    <section id="skills" className="py-32 px-6 w-full max-w-7xl mx-auto border-t-8 border-black">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gradient">Technical Arsenal</h2>
-          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl">A comprehensive overview of my technical proficiencies, specialized tools, and professional skills.</p>
-        </div>
+        <h2 className="text-[8vw] md:text-[6rem] font-black uppercase tracking-tighter text-black mb-16 leading-none">
+          Engineering <br/> <span className="text-[var(--secondary-accent)]" style={{ WebkitTextStroke: '2px black' }}>Dashboard</span>
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, idx) => {
-            const colors = getColorClasses(category.color);
-            return (
-              <div 
-                key={idx} 
-                className={`p-8 rounded-3xl relative overflow-hidden group transition-all duration-300 border border-black/10 dark:border-white/10 hover:-translate-y-1 ${colors.boxBg} ${colors.hover} backdrop-blur-xl flex flex-col ${idx === 3 ? "md:col-span-2 lg:col-span-2" : ""}`}
+        <div className="flex flex-col lg:flex-row gap-12">
+          
+          {/* Brutalist Tabs */}
+          <div className="flex flex-row lg:flex-col gap-4 overflow-x-auto lg:w-1/3 pb-8 lg:pb-0 hide-scrollbar p-2">
+            {Object.keys(skillData).map((key) => {
+              const Icon = skillData[key].icon;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key)}
+                  className={`flex items-center gap-4 px-8 py-6 rounded-2xl text-left font-black uppercase tracking-widest text-lg md:text-2xl border-4 border-black brutal-shadow transition-all whitespace-nowrap ${
+                    activeTab === key ? "bg-[var(--text-main)] text-white translate-x-2" : "bg-white text-black hover:bg-gray-100 hover:translate-x-1"
+                  }`}
+                >
+                  <Icon className="w-8 h-8" strokeWidth={3} />
+                  {key}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Content */}
+          <div className="lg:w-2/3 min-h-[500px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="grid gap-6"
               >
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${colors.bg} ${colors.text} transition-transform duration-300 group-hover:scale-110 shrink-0`}>
-                  <category.icon className="w-7 h-7" />
-                </div>
-                
-                <h3 className="text-xl font-bold text-black dark:text-white mb-2">{category.title}</h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-8">{category.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {category.skills.map((skill, i) => (
-                    <span 
-                      key={i} 
-                      className={`px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300 transition-all duration-300 cursor-default ${colors.tagHover}`}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+                {skillData[activeTab].skills.map((skill: any, idx: number) => (
+                  <div key={idx} className="bg-white border-4 border-black p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 brutal-shadow hover:-translate-y-1 hover:brutal-shadow transition-all">
+                    
+                    <div className="md:w-1/3">
+                      <h3 className="text-3xl font-black text-black mb-2">{skill.name}</h3>
+                    </div>
+
+                    <div className="md:w-1/3">
+                      <p className="text-neutral-500 font-bold text-sm uppercase tracking-widest mb-1">Projects</p>
+                      <p className="text-black font-black text-lg">{skill.projects}</p>
+                    </div>
+
+                    <div className="md:w-1/3">
+                      <p className="text-neutral-500 font-bold text-sm uppercase tracking-widest mb-1">Related</p>
+                      <p className="text-black font-black text-lg">{skill.related}</p>
+                    </div>
+
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </motion.div>
     </section>
