@@ -39,7 +39,7 @@ export const Projects = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-20%" }}
+                  viewport={{ once: true, margin: "0px" }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="lg:col-span-6 flex flex-col"
                 >
@@ -81,7 +81,7 @@ export const Projects = () => {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
+                  viewport={{ once: true, margin: "0px" }}
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="lg:col-span-6 relative h-[50vh] lg:h-[70vh] w-full rounded-[2rem] overflow-hidden border-8 border-black bg-white brutal-shadow group"
                 >

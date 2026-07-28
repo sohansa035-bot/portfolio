@@ -26,7 +26,7 @@ export const ResearchTimeline = () => {
               key={project.slug}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8 }}
               className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 ${idx % 2 === 0 ? "md:flex-row-reverse" : ""}`}
             >

@@ -9,7 +9,7 @@ export const About = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
         className="max-w-4xl bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
       >
@@ -22,7 +22,7 @@ export const About = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
         className="max-w-4xl self-end md:text-right bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform rotate-1 relative"
       >
@@ -35,7 +35,7 @@ export const About = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
         className="max-w-4xl bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
       >
@@ -48,7 +48,7 @@ export const About = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
         className="max-w-4xl self-end md:text-right bg-white border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform rotate-1 relative"
       >
@@ -61,7 +61,7 @@ export const About = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
         className="max-w-4xl bg-[var(--primary-accent)] border-8 border-black rounded-[3rem] p-10 md:p-16 brutal-shadow transform -rotate-1 relative"
       >

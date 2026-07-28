@@ -116,7 +116,7 @@ export const LabDoors = () => {
   // System Boot State Machine
   // 0: Idle, 1: Orb powers up, 2: Circuit lines draw, 3: Cards flash & power up, 4: Boot complete
   const [bootStage, setBootStage] = useState(0);
-  const isInView = useInView(containerRef, { once: true, margin: "-20%" });
+  const isInView = useInView(containerRef, { once: true, margin: "0px" });
 
   useEffect(() => {
     if (isInView && bootStage === 0) {

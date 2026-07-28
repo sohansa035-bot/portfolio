@@ -55,7 +55,7 @@ export const Timeline = () => {
               <motion.div 
                 initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-20%" }}
+                viewport={{ once: true, margin: "0px" }}
                 className="w-full md:w-5/12 pl-24 md:pl-0 md:odd:pr-16 md:even:pl-16"
               >
                 <div className="p-8 border-4 border-black bg-white rounded-3xl brutal-shadow hover:-translate-y-2 hover:brutal-shadow transition-all group-hover:border-[var(--primary-accent)]">

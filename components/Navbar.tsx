@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   const { scrollY } = useScroll();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
@@ -48,7 +48,7 @@ export const Navbar = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative px-6 py-3 text-sm md:text-base font-black uppercase transition-all rounded-full ${isActive ? 'text-white' : 'text-black hover:bg-gray-100'}`}
+                  className={`relative px-3 py-2 md:px-6 md:py-3 text-[10px] md:text-base font-black uppercase transition-all rounded-full ${isActive ? 'text-white' : 'text-black hover:bg-gray-100'}`}
                 >
                   {isActive && (
                     <motion.div
@@ -57,7 +57,7 @@ export const Navbar = () => {
                       transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     />
                   )}
-                  <span className="relative z-10 tracking-widest">{link.name}</span>
+                  <span className="relative z-10 tracking-widest whitespace-nowrap">{link.name}</span>
                 </Link>
               );
             })}

@@ -41,7 +41,7 @@ const InteractiveCard = ({ card, index }: { card: typeof CARDS[0], index: number
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ margin: "-20%", once: false }}
+      viewport={{ margin: "0px", once: false }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
       onMouseMove={handleMouseMove}
       whileHover={{ y: -10, rotateX: 2, rotateY: -2, scale: 1.02 }}

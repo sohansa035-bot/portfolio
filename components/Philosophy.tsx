@@ -8,7 +8,7 @@ export const Philosophy = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-20%" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="w-full max-w-6xl bg-[var(--primary-accent)] border-8 border-black rounded-[3rem] p-12 md:p-24 text-center brutal-shadow-lg transform -rotate-1 relative"
       >
