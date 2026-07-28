@@ -80,7 +80,7 @@ export const PersonalDetails = () => {
           </div>
 
           {/* Quick Metrics */}
-          <div className="bg-black text-white border-4 border-black rounded-[2rem] p-8 brutal-shadow flex justify-between items-center group cursor-pointer hover:bg-neutral-900 transition-colors">
+          <Link href="#contact" className="bg-black text-white border-4 border-black rounded-[2rem] p-8 brutal-shadow flex justify-between items-center group cursor-pointer hover:bg-neutral-900 transition-colors">
             <div>
               <span className="block text-xs font-mono text-neutral-400 uppercase tracking-widest mb-2">Connect</span>
               <span className="block text-2xl font-black uppercase tracking-tighter">Initiate Handshake</span>
@@ -88,7 +88,7 @@ export const PersonalDetails = () => {
             <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-45 transition-all">
               <ArrowRight className="w-6 h-6" strokeWidth={3} />
             </div>
-          </div>
+          </Link>
 
         </div>
 
