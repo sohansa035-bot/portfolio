@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { JourneyCompanion } from "@/components/JourneyCompanion";
 import { GlobalAmbient } from "@/components/GlobalAmbient";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { About } from "@/components/About";
 
 export default function Home() {
   return (
@@ -15,6 +16,10 @@ export default function Home() {
       <Navbar />
       
       <Hero />
+      
+      <ScrollReveal>
+        <About />
+      </ScrollReveal>
       
       <ScrollReveal>
         <StickyCoreShowcase />
