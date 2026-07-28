@@ -23,11 +23,11 @@ export const PersonalDetails = () => {
           </div>
           
           <h3 className="text-4xl md:text-5xl font-black text-black leading-tight uppercase tracking-tighter mb-8">
-            I engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-accent)] to-[var(--secondary-accent)]">intelligent systems</span> that bridge the gap between deep research and real-world scale.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-accent)] to-[var(--secondary-accent)]">I BUILD INTELLIGENT SYSTEMS</span> THAT SOLVE REAL-WORLD PROBLEMS.
           </h3>
           
           <p className="text-xl font-bold text-neutral-700 leading-relaxed mb-8">
-            My work focuses on full-stack architecture, machine learning pipelines, and autonomous robotics. I don't just write code—I build robust, mission-critical products designed to solve complex problems at scale.
+            I&apos;m a B.Tech student in Artificial Intelligence & Machine Learning at REVA University, passionate about building intelligent software, AI-driven solutions, and scalable digital products. Through engineering, research, leadership, and open-source collaboration, I strive to create technology that transforms ideas into meaningful real-world impact.
           </p>
 
           <Link href="/Resume.pdf" target="_blank" className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[var(--primary-accent)] transition-colors">
@@ -47,18 +47,33 @@ export const PersonalDetails = () => {
             <div className="flex flex-col gap-6">
               <div>
                 <span className="block text-xs font-black uppercase tracking-widest text-[var(--primary-accent)] mb-1">Name</span>
-                <span className="block text-3xl font-black uppercase tracking-tighter text-black">Sohan Saha</span>
+                <span className="block text-2xl font-black uppercase tracking-tighter text-black">Sohan Saha</span>
               </div>
               
               <div>
-                <span className="block text-xs font-black uppercase tracking-widest text-[var(--secondary-accent)] mb-1">Primary Role</span>
-                <span className="block text-xl font-bold text-black">Product Engineer & AI Researcher</span>
+                <span className="block text-xs font-black uppercase tracking-widest text-neutral-500 mb-1">Education</span>
+                <span className="block text-lg font-bold text-black">B.Tech – Artificial Intelligence & Machine Learning</span>
+              </div>
+
+              <div>
+                <span className="block text-xs font-black uppercase tracking-widest text-neutral-500 mb-1">Institution</span>
+                <span className="block text-lg font-bold text-black">REVA University</span>
               </div>
               
               <div>
-                <span className="block text-xs font-black uppercase tracking-widest text-[var(--success)] mb-1">Current Base</span>
-                <span className="flex items-center gap-2 text-xl font-bold text-black">
-                  <MapPin className="w-5 h-5" /> India
+                <span className="block text-xs font-black uppercase tracking-widest text-[var(--secondary-accent)] mb-1">Current Role</span>
+                <span className="block text-lg font-bold text-black">Technical Co-Head<br/>IEEE TEMS REVA University</span>
+              </div>
+
+              <div>
+                <span className="block text-xs font-black uppercase tracking-widest text-[var(--success)] mb-1">Focus</span>
+                <span className="block text-sm font-bold text-black uppercase tracking-widest">AI Systems • Software Engineering • Product Development</span>
+              </div>
+              
+              <div>
+                <span className="block text-xs font-black uppercase tracking-widest text-black mb-1">Location</span>
+                <span className="flex items-center gap-2 text-lg font-bold text-black">
+                  <MapPin className="w-5 h-5" /> Bengaluru, India
                 </span>
               </div>
             </div>
