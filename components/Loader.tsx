@@ -233,15 +233,17 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
                 animate={
                   stage === 3 
-                    ? { x: p.explodeX, y: p.explodeY, opacity: Math.random() * 0.5 + 0.5, scale: Math.random() * 4 + 1, boxShadow: "none" }
+                    ? { x: p.explodeX, y: p.explodeY, opacity: (p.id % 5) * 0.1 + 0.5, scale: (p.id % 4) + 1 }
                     : { 
                         x: p.orderX, 
                         y: p.orderY, 
                         opacity: isActive ? [0.2, 1, 0.2] : 0.1, 
-                        scale: isActive ? [1, 2, 1] : 1,
-                        boxShadow: isActive ? "0 0 15px 2px rgba(255,77,0,1)" : "none"
+                        scale: isActive ? [1, 2, 1] : 1
                       }
                 }
+                style={{
+                  boxShadow: isActive && stage === 4 ? "0 0 15px 2px rgba(255,77,0,1)" : "none"
+                }}
                 transition={{
                   x: { duration: stage === 3 ? 1.5 : 2, ease: stage === 3 ? "easeOut" : [0.76, 0, 0.24, 1], delay: stage === 4 ? p.delay : 0 },
                   y: { duration: stage === 3 ? 1.5 : 2, ease: stage === 3 ? "easeOut" : [0.76, 0, 0.24, 1], delay: stage === 4 ? p.delay : 0 },
@@ -276,18 +278,17 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ 
                             pathLength: 1, 
-                            opacity: isMainPath ? 1 : 0.2,
-                            filter: isInfinity && stage === 4 ? [
-                              "drop-shadow(0px 0px 5px rgba(255, 77, 0, 0.8))",
-                              "drop-shadow(0px 0px 25px rgba(255, 77, 0, 1))",
-                              "drop-shadow(0px 0px 5px rgba(255, 77, 0, 0.8))"
-                            ] : isMainPath ? "drop-shadow(0px 0px 8px rgba(255, 77, 0, 1))" : "none"
+                            opacity: isMainPath ? (isInfinity && stage === 4 ? [0.6, 1, 0.6] : 1) : 0.2
                           }}
                           exit={{ opacity: 0 }}
                           transition={{ 
                             pathLength: { duration: isMainPath ? 0.4 : 1.5, ease: "easeOut", delay: c.delay },
-                            opacity: { duration: isMainPath ? 0.4 : 1.5, ease: "easeOut", delay: c.delay },
-                            filter: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: c.delay }
+                            opacity: isInfinity && stage === 4 
+                              ? { duration: 2, repeat: Infinity, ease: "easeInOut", delay: c.delay } 
+                              : { duration: isMainPath ? 0.4 : 1.5, ease: "easeOut", delay: c.delay }
+                          }}
+                          style={{
+                            filter: isMainPath ? "drop-shadow(0px 0px 8px rgba(255, 77, 0, 1))" : "none"
                           }}
                         />
                       );
