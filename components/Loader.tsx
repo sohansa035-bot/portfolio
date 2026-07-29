@@ -14,8 +14,8 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
   // 4: Chaos to Order (Neural Grid assembly & Website Birth)
 
   useEffect(() => {
-    // Scene 1: Absolute Darkness
-    const timer = setTimeout(() => setStage(1), 600);
+    // Scene 1: Absolute Darkness (Reduced for faster loading)
+    const timer = setTimeout(() => setStage(1), 200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -154,7 +154,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
               { scale: 300, opacity: 0 } // Big Bang expansion
             }
             transition={{
-              duration: stage === 1 ? 2 : stage === 2 ? 0.4 : 1.2,
+              duration: stage === 1 ? 0.8 : stage === 2 ? 0.4 : 1.2,
               ease: stage === 1 ? "easeOut" : stage === 2 ? "anticipate" : "circIn"
             }}
           >
@@ -197,8 +197,8 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
             animate={{ opacity: [0.3, 1, 0.3], y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ 
-              y: { duration: 1, delay: 1 }, 
-              opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 } 
+              y: { duration: 0.5, delay: 0.5 }, 
+              opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 } 
             }}
             className="absolute bottom-1/4 text-[10px] font-mono tracking-[0.5em] text-[#FF4D00] uppercase pointer-events-none"
           >
