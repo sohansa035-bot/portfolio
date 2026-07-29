@@ -189,6 +189,24 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
         )}
       </AnimatePresence>
 
+      {/* Instructional Text */}
+      <AnimatePresence>
+        {stage === 1 && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0.3, 1, 0.3], y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ 
+              y: { duration: 1, delay: 1 }, 
+              opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 } 
+            }}
+            className="absolute bottom-1/4 text-[10px] font-mono tracking-[0.5em] text-[#FF4D00] uppercase pointer-events-none"
+          >
+            Click to Initiate
+          </motion.p>
+        )}
+      </AnimatePresence>
+
       {/* The Big Bang Particles & Neural Assembly */}
       {stage >= 3 && (
         <motion.div 
