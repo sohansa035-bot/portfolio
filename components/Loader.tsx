@@ -36,7 +36,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
         setTimeout(() => {
           // Scene 7: Website Birth
           onComplete();
-        }, 1200); // Snappier wait time for reactor assembly
+        }, 2200); // Give time to admire the Reactor before website reveal
       }, 600); // Faster explosion
     }, 300); // Faster implosion
   };
