@@ -186,22 +186,17 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
       </AnimatePresence>
 
       {/* Instructional Text */}
-      <AnimatePresence>
-        {stage === 1 && (
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: [0.3, 1, 0.3], y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ 
-              y: { duration: 0.3, delay: 0 }, 
-              opacity: { duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0 } 
-            }}
-            className="absolute bottom-1/4 text-[10px] font-mono tracking-[0.5em] text-[#FF4D00] uppercase pointer-events-none"
-          >
-            Click to Initiate
-          </motion.p>
-        )}
-      </AnimatePresence>
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        animate={stage === 1 ? { opacity: [0.3, 1, 0.3], y: 0 } : { opacity: 0, y: -10 }}
+        transition={{ 
+          y: { duration: 0.3 }, 
+          opacity: stage === 1 ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" } : { duration: 0.2 }
+        }}
+        className={`absolute bottom-1/4 text-[10px] font-mono tracking-[0.5em] text-[#FF4D00] uppercase pointer-events-none ${stage > 1 ? 'pointer-events-none' : ''}`}
+      >
+        Click to Initiate
+      </motion.p>
 
       {/* The Big Bang Particles & Neural Assembly */}
       {stage >= 3 && (
