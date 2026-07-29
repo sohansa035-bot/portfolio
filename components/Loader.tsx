@@ -76,6 +76,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
     
     // Core rods inside the loops
     const coreRods = [[18, 26], [21, 29]];
+    const coreRodsFlat = [18, 26, 21, 29];
 
     let delayCount = 0;
     
@@ -117,7 +118,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
       }
     }
     
-    const activeNodesSet = new Set([...infinityLoop, ...shellTop, ...shellBottom, ...coreRods.flat()]);
+    const activeNodesSet = new Set([...infinityLoop, ...shellTop, ...shellBottom, ...coreRodsFlat]);
 
     return { particles: pts, connections: conns, activeNodes: activeNodesSet };
   }, []);
@@ -214,7 +215,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
                 animate={
                   stage === 3 
-                    ? { x: p.explodeX, y: p.explodeY, opacity: Math.random() * 0.5 + 0.5, scale: Math.random() * 4 + 1 }
+                    ? { x: p.explodeX, y: p.explodeY, opacity: Math.random() * 0.5 + 0.5, scale: Math.random() * 4 + 1, boxShadow: "none" }
                     : { 
                         x: p.orderX, 
                         y: p.orderY, 
@@ -226,8 +227,8 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 transition={{
                   x: { duration: stage === 3 ? 1.5 : 2, ease: stage === 3 ? "easeOut" : [0.76, 0, 0.24, 1], delay: stage === 4 ? p.delay : 0 },
                   y: { duration: stage === 3 ? 1.5 : 2, ease: stage === 3 ? "easeOut" : [0.76, 0, 0.24, 1], delay: stage === 4 ? p.delay : 0 },
-                  opacity: isActive && stage === 4 ? { duration: 1.5 + Math.random(), repeat: Infinity, delay: Math.random() * 2 } : { duration: 1 },
-                  scale: isActive && stage === 4 ? { duration: 1.5 + Math.random(), repeat: Infinity, delay: Math.random() * 2 } : { duration: 1 }
+                  opacity: isActive && stage === 4 ? { duration: 1.5 + (p.id % 3) * 0.5, repeat: Infinity, delay: (p.id % 5) * 0.2 } : { duration: 1 },
+                  scale: isActive && stage === 4 ? { duration: 1.5 + (p.id % 3) * 0.5, repeat: Infinity, delay: (p.id % 5) * 0.2 } : { duration: 1 }
                 }}
               />
             );
