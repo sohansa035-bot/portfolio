@@ -5,15 +5,19 @@ import { useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 
 export const Loader = ({ onComplete }: { onComplete: () => void }) => {
-  const [stage, setStage] = useState<0 | 1 | 2 | 3 | 4>(1);
+  const [stage, setStage] = useState<0 | 1 | 2 | 3 | 4>(0);
   
-  // 0: Absolute Darkness (Removed)
+  // 0: Absolute Darkness (400ms)
   // 1: The Orb (Idle & Hover)
-  // 2: Implosion (400ms)
+  // 2: Implosion (300ms)
   // 3: The Big Bang (Explosion wave)
   // 4: Chaos to Order (Neural Grid assembly & Website Birth)
 
-  // Start directly at stage 1, no delay.
+  useEffect(() => {
+    // Scene 1: Absolute Darkness (Smooth deliberate entry)
+    const timer = setTimeout(() => setStage(1), 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleClick = () => {
     if (stage !== 1) return;
@@ -150,7 +154,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
               { scale: 300, opacity: 0 } // Big Bang expansion
             }
             transition={{
-              duration: stage === 1 ? 0.4 : stage === 2 ? 0.4 : 1.2,
+              duration: stage === 1 ? 1.2 : stage === 2 ? 0.4 : 1.2,
               ease: stage === 1 ? "easeOut" : stage === 2 ? "anticipate" : "circIn"
             }}
           >
