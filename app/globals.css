@@ -54,6 +54,15 @@ body {
   .brutal-shadow {
     box-shadow: 6px 6px 0px 0px #111;
   }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Make selection pop */

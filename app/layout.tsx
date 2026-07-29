@@ -13,6 +13,7 @@ const geistMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sohansaha.vercel.app"),
   title: "Sohan Saha | AI & Machine Learning Engineer",
   description: "Portfolio of Sohan Saha, an AI & Machine Learning student and Technical Co-Head of IEEE TEMS REVA University.",
   keywords: ["AI Engineer", "Machine Learning", "Data Science", "Sohan Saha", "REVA University", "Portfolio"],

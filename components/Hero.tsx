@@ -1,38 +1,19 @@
 "use client";
 
-import { motion, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
-import { useEffect } from "react";
-import { Magnetic } from "./Magnetic";
 import Link from "next/link";
 import { HeroParticles } from "./HeroParticles";
 
 export const Hero = () => {
-  const mouseX = useSpring(0, { stiffness: 50, damping: 20 });
-  const mouseY = useSpring(0, { stiffness: 50, damping: 20 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
   const name = "SOHAN SAHA".split("");
-
-  // Subtle parallax effect mapped from the mouse spring
-  const parallaxX = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1000], [-30, 30]);
-  const parallaxY = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [-30, 30]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full px-6 py-32 bg-[#FDFBF7]">
       
-      {/* Animated Aurora Mesh Gradient with Parallax */}
-      <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Animated Aurora Mesh Gradient */}
+      <motion.div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Deep Orange / Red Glow */}
         <motion.div 
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0], opacity: [0.4, 0.6, 0.4] }}
@@ -54,16 +35,6 @@ export const Hero = () => {
       </motion.div>
 
       <HeroParticles />
-
-      {/* Cinematic Spotlight following cursor (Overlays the Mesh) */}
-      <motion.div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-60 mix-blend-overlay"
-        style={{
-          background: "radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.8), transparent 60%)",
-          "--mouse-x": useTransform(mouseX, v => `${v}px`),
-          "--mouse-y": useTransform(mouseY, v => `${v}px`)
-        } as any}
-      />
 
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0" 
            style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '100px 100px' }} 
@@ -127,24 +98,18 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 1.5, ease: [0.76, 0, 0.24, 1] }}
           className="flex flex-wrap items-center justify-center gap-6 z-50 relative"
         >
-          <Magnetic>
-            <Link href="/build" className="group flex items-center gap-4 px-10 py-5 bg-black text-white rounded-none border-2 border-black font-black text-xl brutal-shadow transition-all duration-300 hover:shadow-none hover:translate-x-1 hover:translate-y-1 z-50 relative pointer-events-auto">
-              INITIALIZE ARCHITECTURE
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-            </Link>
-          </Magnetic>
+          <Link href="/build" className="group flex items-center gap-4 px-10 py-5 bg-black text-white rounded-none border-2 border-black font-black text-xl brutal-shadow transition-all duration-300 hover:shadow-none hover:translate-x-1 hover:translate-y-1 z-50 relative pointer-events-auto">
+            INITIALIZE ARCHITECTURE
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+          </Link>
           
           <div className="flex gap-4">
-            <Magnetic>
-              <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-black text-black hover:bg-black hover:text-white transition-colors brutal-shadow">
-                <GithubIcon className="w-8 h-8" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="https://linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-colors brutal-shadow">
-                <LinkedinIcon className="w-8 h-8" />
-              </a>
-            </Magnetic>
+            <a href="https://github.com/sohansa035-bot" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-black text-black hover:bg-black hover:text-white transition-colors brutal-shadow">
+              <GithubIcon className="w-8 h-8" />
+            </a>
+            <a href="https://linkedin.com/in/sohan-saha-130353399/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-colors brutal-shadow">
+              <LinkedinIcon className="w-8 h-8" />
+            </a>
           </div>
         </motion.div>
 

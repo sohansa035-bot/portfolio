@@ -45,10 +45,10 @@ export const CommandPalette = ({ toggleBlueprint }: { toggleBlueprint: () => voi
             onClick={() => setIsOpen(false)}
           />
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed top-1/4 left-1/2 -translate-x-1/2 w-full max-w-xl bg-surface border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-[201]"
+            initial={{ opacity: 0, scale: 0.95, y: -20, x: "-50%" }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, scale: 0.95, y: -20, x: "-50%" }}
+            className="fixed top-1/4 left-1/2 w-full max-w-xl bg-surface border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-[201]"
           >
             <input 
               type="text" 
@@ -58,17 +58,17 @@ export const CommandPalette = ({ toggleBlueprint }: { toggleBlueprint: () => voi
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <div className="max-h-64 overflow-y-auto p-2">
+            <div className="max-h-[60vh] overflow-y-auto p-2 flex flex-col md:grid md:grid-cols-2 gap-2">
               {filteredCommands.length > 0 ? filteredCommands.map((cmd, idx) => (
                 <button
                   key={idx}
                   onClick={cmd.action}
-                  className="w-full text-left p-4 hover:bg-white/5 rounded-xl text-neutral-300 font-mono text-sm transition-colors"
+                  className="w-full text-left md:text-center p-4 hover:bg-white/5 rounded-xl text-neutral-300 font-mono text-sm transition-colors"
                 >
                   {cmd.name}
                 </button>
               )) : (
-                <div className="p-6 text-center text-neutral-500 font-mono text-sm">No commands found.</div>
+                <div className="p-6 text-center text-neutral-500 font-mono text-sm md:col-span-2">No commands found.</div>
               )}
             </div>
           </motion.div>
