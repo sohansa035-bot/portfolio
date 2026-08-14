@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Loader } from "./Loader";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { CommandPalette } from "./CommandPalette";
 import Lenis from "lenis";
 import { usePathname, useRouter } from "next/navigation";
@@ -89,15 +89,20 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div className={`relative ${blueprintMode ? 'blueprint-mode' : ''}`}>
+    <div className={`relative ${blueprintMode ? 'blueprint-mode' : ''} bg-[#EDEDED]`}>
       <CommandPalette toggleBlueprint={() => setBlueprintMode(!blueprintMode)} />
       
       <AnimatePresence>
         {loading && <Loader key="global-loader" onComplete={() => setLoading(false)} />}
       </AnimatePresence>
-      <div className={`transition-opacity duration-1000 ${loading ? 'opacity-0 h-screen overflow-hidden pointer-events-none' : 'opacity-100'}`}>
+      <motion.div 
+        className={loading ? 'h-screen overflow-hidden pointer-events-none' : ''}
+        initial={{ clipPath: "circle(0% at 50% 50%)" }}
+        animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "circle(150% at 50% 50%)" }}
+        transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
+      >
         {children}
-      </div>
+      </motion.div>
     </div>
   );
 };

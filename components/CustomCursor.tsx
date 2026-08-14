@@ -6,10 +6,9 @@ import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motio
 export const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  
-  // Spring physics for smooth trailing effect
-  const cursorXSpring = useSpring(cursorX, { damping: 20, stiffness: 800, mass: 0.1 });
-  const cursorYSpring = useSpring(cursorY, { damping: 20, stiffness: 800, mass: 0.1 });
+  // Ultra-tight spring physics to eliminate lag while keeping sub-pixel smoothness
+  const cursorXSpring = useSpring(cursorX, { damping: 40, stiffness: 3000, mass: 0.01 });
+  const cursorYSpring = useSpring(cursorY, { damping: 40, stiffness: 3000, mass: 0.01 });
   
   const [isHovering, setIsHovering] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
