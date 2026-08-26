@@ -59,7 +59,7 @@ export const Contact = () => {
             <span className="text-sm uppercase tracking-widest font-black">Email</span>
           </a>
 
-          <a href="/Resume.pdf" target="_blank" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
+          <a href="/Resume.png" target="_blank" className="flex flex-col items-center gap-3 text-black hover:scale-110 transition-transform group z-50 relative pointer-events-auto">
             <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center bg-[var(--success)] text-black brutal-shadow">
               <FileText className="w-10 h-10" strokeWidth={3} />
             </div>

@@ -30,7 +30,7 @@ export const PersonalDetails = () => {
             I&apos;m a B.Tech student in Artificial Intelligence & Machine Learning at REVA University, passionate about building intelligent software, AI-driven solutions, and scalable digital products. Through engineering, research, leadership, and open-source collaboration, I strive to create technology that transforms ideas into meaningful real-world impact.
           </p>
 
-          <Link href="/Resume.pdf" target="_blank" className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[var(--primary-accent)] transition-colors">
+          <Link href="/Resume.png" target="_blank" className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[var(--primary-accent)] transition-colors">
             <FileText className="w-5 h-5" /> Download Resume
           </Link>
         </div>

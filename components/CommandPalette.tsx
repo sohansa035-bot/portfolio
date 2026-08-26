@@ -25,7 +25,7 @@ export const CommandPalette = ({ toggleBlueprint }: { toggleBlueprint: () => voi
     { name: "Build (Projects & Products)", action: () => { window.location.href = "/build"; setIsOpen(false); } },
     { name: "Research (AI & Robotics)", action: () => { window.location.href = "/research"; setIsOpen(false); } },
     { name: "Lead (Community & Mentorship)", action: () => { window.location.href = "/lead"; setIsOpen(false); } },
-    { name: "Resume", action: () => { window.open("/Resume.pdf", "_blank"); setIsOpen(false); } },
+    { name: "Resume", action: () => { window.open("/Resume.png", "_blank"); setIsOpen(false); } },
     { name: "GitHub", action: () => { window.open("https://github.com/sohansa035-bot", "_blank"); setIsOpen(false); } },
     { name: "LinkedIn", action: () => { window.open("https://linkedin.com/in/sohan-saha-130353399/", "_blank"); setIsOpen(false); } },
     { name: "Toggle Blueprint Mode", action: () => { toggleBlueprint(); setIsOpen(false); } },

@@ -13,7 +13,7 @@ export const Timeline = () => {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const journey = [
-    { year: "2025 - 2029", title: "Started Engineering at REVA University", description: "B.Tech in Information Science & Engineering." },
+    { year: "2025 - 2029", title: "Started Engineering at REVA University", description: "B.Tech in Artificial Intelligence & Machine Learning." },
     { year: "Dec 2025 - Mar 2026", title: "Technical & Digital Operations Intern", description: "OptCell Global. Contributed to corporate web projects, digital operations, and workflow optimization." },
     { year: "Mar 2026 - Present", title: "IEEE Co-Tech Lead @ IEEE REVA TEMS", description: "Leading technical initiatives, coordinating hackathons, and mentoring members on AI and deep tech." },
   ];
