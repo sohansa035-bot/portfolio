@@ -59,8 +59,8 @@ export const projectsData = [
   {
     slug: "ai-soc",
     title: "AI-SOC",
-    role: "Threat Intelligence Pipeline",
-    description: "A deterministic SRE Incident Triage environment featuring a FastAPI server, deployed seamlessly to cloud environments like Hugging Face Spaces for live inference. Monitors system logs and auto-resolves anomalies.",
+    role: "AI-Powered Threat Detection & Incident Response",
+    description: "An AI-powered Security Operations Center platform for log normalization, threat detection, incident correlation, risk scoring, MITRE ATT&CK mapping, and AI-assisted security investigation.",
     tech: ["FastAPI", "Python", "Hugging Face", "Docker"],
     nodes: ["System Logs", "FastAPI", "Hugging Face Model", "Triage", "Alerts"],
     github: "https://github.com/sohansa035-bot/ai-soc-threat-pipeline",
@@ -133,3 +133,29 @@ export const projectsData = [
     }
   }
 ];
+  {
+    slug: "smps-tech-lab",
+    title: "SMPS Tech Lab",
+    role: "R&D and Technology Innovation Platform",
+    description:
+      "An R&D-focused technology platform exploring engineering innovation, intellectual property, and emerging technologies through practical product development.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "R&D"],
+    nodes: ["R&D", "IP Portfolio", "Engineering", "Innovation", "Technology"],
+    github: "https://github.com/sohansa035-bot/smps_",
+    caseStudy: "/build/smps-tech-lab",
+    color: "from-orange-500/20 to-amber-500/0",
+    image:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='100%25' height='100%25' fill='%23050505'/%3E%3Ccircle cx='400' cy='200' r='100' fill='none' stroke='%23f97316' stroke-width='1' stroke-dasharray='4'/%3E%3C/svg%3E",
+    content: {
+      problem:
+        "Engineering innovation often requires connecting research, intellectual property, and practical product development into a single technology ecosystem.",
+      architecture:
+        "The platform organizes technology initiatives, R&D activities, and intellectual property into a structured digital experience.",
+      development:
+        "The project focuses on presenting technical innovation through a responsive and modern web interface.",
+      demo:
+        "Visitors can explore the technology and innovation portfolio through structured project and R&D information.",
+      lessons:
+        "The project highlighted the importance of presenting complex engineering concepts clearly while maintaining a professional technical experience.",
+    },
+  },
