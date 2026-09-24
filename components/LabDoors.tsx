@@ -18,9 +18,9 @@ const doors = [
   },
   {
     id: "research",
-    title: "RESEARCH",
-    subtitle: "AI & Robotics",
-    description: "Dive into my work with deep learning, autonomous navigation, and physical-world AI agents.",
+    title: "SKILLS",
+    subtitle: "AI • ML • SYSTEMS",
+    description: "Explore the technologies and tools I use to build intelligent systems and practical AI solutions.",
     icon: Microchip,
     href: "/research",
     bgColor: "bg-[var(--secondary-accent)]",
@@ -66,19 +66,15 @@ const TiltCard = ({ door, idx, bootStage }: { door: typeof doors[0], idx: number
   const Icon = door.icon;
 
   return (
-    <Link href={door.href} className="w-full relative group perspective-1000">
+    <Link href={door.href} className="w-full relative group perspective-1000 block cursor-pointer z-20 pointer-events-auto">
       <motion.div
-        initial={{ opacity: 0.2, filter: "grayscale(100%) brightness(0.5)" }}
-        animate={
-          bootStage >= 3 
-            ? { opacity: 1, filter: "grayscale(0%) brightness(1)", y: 0 } 
-            : { opacity: 0.2, filter: "grayscale(100%) brightness(0.5)", y: 20 }
-        }
-        transition={{ duration: 0.8, delay: bootStage >= 3 ? idx * 0.15 : 0, ease: "easeOut" }}
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className={`relative h-[450px] flex flex-col justify-between p-8 rounded-[2rem] border-4 border-black ${door.bgColor} brutal-shadow overflow-hidden transition-all duration-300 ${bootStage >= 4 ? 'group-hover:brutal-shadow pointer-events-auto' : 'pointer-events-none'}`}
+        className={`relative h-[450px] flex flex-col justify-between p-8 rounded-[2rem] border-4 border-black ${door.bgColor} brutal-shadow overflow-hidden transition-all duration-300 pointer-events-auto cursor-pointer group-hover:brutal-shadow`}
       >
         {/* Floating Background Icon (Exploded View Parallax) */}
         <Icon 
