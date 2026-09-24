@@ -10,7 +10,9 @@ const stages = [
   { id: "product", label: "04 // Finished Product", color: "bg-white" }
 ];
 
-export const InteractiveBlueprint = ({ image }: { image: string }) => {
+const DEFAULT_BLUEPRINT_SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='100%25' height='100%25' fill='%23050505'/%3E%3Ccircle cx='400' cy='200' r='100' fill='none' stroke='%233b82f6' stroke-width='1' stroke-dasharray='4'/%3E%3C/svg%3E";
+
+export const InteractiveBlueprint = ({ image = DEFAULT_BLUEPRINT_SVG }: { image?: string }) => {
   const [activeStage, setActiveStage] = useState(0);
 
   useEffect(() => {

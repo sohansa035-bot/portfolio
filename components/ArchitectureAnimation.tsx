@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export const ArchitectureAnimation = ({ nodes }: { nodes: string[] }) => {
+export const ArchitectureAnimation = ({ nodes = [] }: { nodes?: string[] }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center w-full gap-4 md:gap-8 my-16 px-4">
       {nodes.map((node, idx) => {
