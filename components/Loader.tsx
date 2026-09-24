@@ -15,20 +15,21 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
       
       if (current >= 100) {
         current = 100;
+        setProgress(100);
         clearInterval(interval);
-        setTimeout(() => setStage(1), 500);
+        setTimeout(() => {
+          setStage(1);
+        }, 300);
+      } else {
+        setProgress(current);
       }
-      setProgress(current);
-    }, 40);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
 
   const handleClick = () => {
-    if (stage !== 1) return;
     setStage(2);
-    
-    // Call onComplete instantly so ClientWrapper starts the expanding circle reveal
     onComplete();
   };
 
@@ -76,7 +77,7 @@ export const Loader = ({ onComplete }: { onComplete: () => void }) => {
               transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
             />
             <span className="relative z-10 font-mono text-sm tracking-widest uppercase font-black group-hover:text-white transition-colors duration-300 block w-full text-center">
-              CLICK - TO INITIATE
+              CLICK — TO INITIALIZE
             </span>
           </motion.button>
         )}

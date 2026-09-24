@@ -20,22 +20,11 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const [blueprintMode, setBlueprintMode] = useState(false);
 
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem("visited");
-    
-    if (hasVisited) {
-      // Returning visitor (in this session): skip The Spark intro completely.
-      setLoading(false); 
-    } else {
-      // First-time visitor: lock them in to see The Spark.
-      sessionStorage.setItem("visited", "true");
-      
-      // If they somehow landed on a sub-page first, forcefully route them to Home 
-      // so the cinematic sequence happens on the main root URL.
-      if (pathname !== "/") {
-        router.replace("/");
-      }
+    if (pathname !== "/") {
+      // Subpages bypass the homepage preloader
+      setLoading(false);
     }
-  }, [pathname, router]);
+  }, [pathname]);
 
   const [konamiIndex, setKonamiIndex] = useState(0);
 
@@ -98,7 +87,7 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
       <motion.div 
         className={loading ? 'h-screen overflow-hidden pointer-events-none' : ''}
         initial={{ clipPath: "circle(0% at 50% 50%)" }}
-        animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "circle(150% at 50% 50%)" }}
+        animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "none" }}
         transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
       >
         {children}
