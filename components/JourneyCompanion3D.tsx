@@ -88,6 +88,9 @@ function Model({ url, active, position = [0, -1.2, 0] }: { url: string, active: 
   );
 }
 
+const assetBasePath =
+  process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
 export function JourneyCompanion3D({ step }: { step: number }) {
   return (
     <div className="w-full h-full pointer-events-none">
@@ -108,10 +111,14 @@ export function JourneyCompanion3D({ step }: { step: number }) {
 
         {/* Render only the active animation model */}
         {/* Offset the work model to align with the door/desk UI on the right */}
-        <Model url="/cricket.glb" active={step === 0} />
-        <Model url="/football.glb" active={step === 1} />
-        <Model url="/badminton.glb" active={step === 2} />
-        <Model url="/work.glb" active={step >= 3} position={[1.5, -1.2, 0]} />
+        <Model url={`${assetBasePath}/cricket.glb`} active={step === 0} />
+        <Model url={`${assetBasePath}/football.glb`} active={step === 1} />
+        <Model url={`${assetBasePath}/badminton.glb`} active={step === 2} />
+        <Model
+          url={`${assetBasePath}/work.glb`}
+          active={step >= 3}
+          position={[1.5, -1.2, 0]}
+        />
         
         {/* Adds realistic shadow under the active character position */}
         {step < 3 ? (
@@ -126,7 +133,7 @@ export function JourneyCompanion3D({ step }: { step: number }) {
   );
 }
 
-useGLTF.preload("/cricket.glb");
-useGLTF.preload("/football.glb");
-useGLTF.preload("/badminton.glb");
-useGLTF.preload("/work.glb");
+useGLTF.preload(`${assetBasePath}/cricket.glb`);
+useGLTF.preload(`${assetBasePath}/football.glb`);
+useGLTF.preload(`${assetBasePath}/badminton.glb`);
+useGLTF.preload(`${assetBasePath}/work.glb`);
