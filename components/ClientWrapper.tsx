@@ -9,22 +9,52 @@ import { usePathname, useRouter } from "next/navigation";
 
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
+const PRELOADER_KEY = "portfolio_preloader_seen";
+
 export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const router = useRouter();
   
-  // Start loading true so the preloader always runs when the website is freshly loaded (or F5 refreshed).
-  // Because this component is in layout.tsx, it will NOT remount during internal link clicks,
-  // meaning internal navigation will smoothly bypass the preloader!
-  const [loading, setLoading] = useState(true);
+  // The preloader will run strictly once per session.
+  // Check sessionStorage so navigating or clicking Home / Contact never triggers it again.
+  const [loading, setLoading] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        if (sessionStorage.getItem(PRELOADER_KEY) === "true") {
+          return false;
+        }
+        if (window.location.pathname !== "/" && !window.location.pathname.endsWith("/portfolio/")) {
+          return false;
+        }
+      } catch {
+        // Fallback if sessionStorage is restricted
+      }
+    }
+    return true;
+  });
   const [blueprintMode, setBlueprintMode] = useState(false);
 
   useEffect(() => {
-    if (pathname !== "/") {
-      // Subpages bypass the homepage preloader
-      setLoading(false);
+    try {
+      if (sessionStorage.getItem(PRELOADER_KEY) === "true" || pathname !== "/") {
+        setLoading(false);
+        sessionStorage.setItem(PRELOADER_KEY, "true");
+      }
+    } catch {
+      if (pathname !== "/") {
+        setLoading(false);
+      }
     }
   }, [pathname]);
+
+  const handleLoaderComplete = () => {
+    try {
+      sessionStorage.setItem(PRELOADER_KEY, "true");
+    } catch {
+      // Ignore
+    }
+    setLoading(false);
+  };
 
   const [konamiIndex, setKonamiIndex] = useState(0);
 
@@ -82,11 +112,11 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
       <CommandPalette toggleBlueprint={() => setBlueprintMode(!blueprintMode)} />
       
       <AnimatePresence>
-        {loading && <Loader key="global-loader" onComplete={() => setLoading(false)} />}
+        {loading && <Loader key="global-loader" onComplete={handleLoaderComplete} />}
       </AnimatePresence>
       <motion.div 
         className={loading ? 'h-screen overflow-hidden pointer-events-none' : ''}
-        initial={{ clipPath: "circle(0% at 50% 50%)" }}
+        initial={loading ? { clipPath: "circle(0% at 50% 50%)" } : false}
         animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "circle(150% at 50% 50%)" }}
         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
       >

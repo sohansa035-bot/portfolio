@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -10,6 +10,15 @@ export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#contact") {
+      const el = document.getElementById("contact");
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 150);
+      }
+    }
+  }, [pathname]);
 
   const links = [
     { name: "Home", href: "/" },
@@ -51,7 +60,10 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => {
-                    if ((link.href === "/#contact" || link.href === "#contact") && pathname === "/") {
+                    if (link.href === "/" && pathname === "/") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } else if ((link.href === "/#contact" || link.href === "#contact") && pathname === "/") {
                       e.preventDefault();
                       const el = document.getElementById("contact");
                       if (el) {
