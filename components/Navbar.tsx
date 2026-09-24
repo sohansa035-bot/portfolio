@@ -16,6 +16,7 @@ export const Navbar = () => {
     { name: "Build", href: "/build" },
     { name: "Skills", href: "/research" },
     { name: "Lead", href: "/lead" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -44,12 +45,21 @@ export const Navbar = () => {
           {/* Changed to flex-row for both mobile and desktop to create a pill/dock look */}
           <nav className="flex flex-row items-center p-1 md:p-2 bg-white border-[3px] md:border-4 border-[var(--text-main)] rounded-full brutal-shadow overflow-hidden">
             {links.map((link) => {
-              const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/");
+              const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/" && !link.href.includes("#"));
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative shrink-0 text-center px-3 py-2 md:px-6 md:py-3 text-[10px] sm:text-xs md:text-base font-black uppercase transition-all rounded-full ${isActive ? 'text-white' : 'text-black hover:bg-gray-100'}`}
+                  onClick={(e) => {
+                    if ((link.href === "/#contact" || link.href === "#contact") && pathname === "/") {
+                      e.preventDefault();
+                      const el = document.getElementById("contact");
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }
+                  }}
+                  className={`relative shrink-0 text-center px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 text-[10px] sm:text-xs md:text-base font-black uppercase transition-all rounded-full ${isActive ? 'text-white' : 'text-black hover:bg-gray-100'}`}
                 >
                   {isActive && (
                     <motion.div

@@ -7,6 +7,8 @@ import { GithubIcon, LinkedinIcon } from "./Icons";
 export const Contact = () => {
   return (
     <section id="contact" className="py-32 px-6 w-full flex flex-col items-center text-center bg-[var(--primary-accent)] border-y-4 border-black relative overflow-hidden">
+      {/* Anchor alias for #connect */}
+      <span id="connect" className="sr-only" aria-hidden="true" />
       
       {/* Background Marquee */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none whitespace-nowrap">
