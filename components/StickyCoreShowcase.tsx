@@ -39,10 +39,10 @@ const InteractiveCard = ({ card, index }: { card: typeof CARDS[0], index: number
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ margin: "0px", once: false }}
-      transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+      viewport={{ margin: "0px", once: true }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       onMouseMove={handleMouseMove}
       whileHover={{ y: -10, rotateX: 2, rotateY: -2, scale: 1.02 }}
       className="group relative w-full max-w-[450px] mx-auto bg-white border-8 border-black rounded-[2rem] p-8 brutal-shadow-lg transition-shadow duration-300 hover:shadow-2xl overflow-hidden cursor-pointer"
@@ -130,7 +130,7 @@ export const StickyCoreShowcase = () => {
         </div>
 
         {/* Right Side: Natural Scrolling Cards */}
-        <div className="w-1/2 py-[30vh] flex flex-col gap-[40vh] z-20">
+        <div className="w-1/2 py-20 lg:py-28 flex flex-col gap-20 lg:gap-24 z-20">
           {CARDS.map((card, index) => (
             <InteractiveCard key={index} card={card} index={index} />
           ))}
