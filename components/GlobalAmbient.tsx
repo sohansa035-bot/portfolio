@@ -22,11 +22,10 @@ export const GlobalAmbient = () => {
 
       {/* Subtle floating ambient light */}
       <motion.div 
-        className="absolute left-1/2 -translate-x-1/2 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full mix-blend-multiply opacity-20 filter blur-[100px]"
+        className="absolute left-1/2 -translate-x-1/2 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full mix-blend-multiply opacity-20 filter blur-[100px] transform-gpu will-change-transform"
         style={{ 
           y: yPos,
           backgroundColor: "var(--primary-accent)",
-          filter: `hue-rotate(${hue}deg) blur(100px)` as any
         }}
       />
     </div>

@@ -16,21 +16,21 @@ export const Hero = () => {
       <motion.div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Deep Orange / Red Glow */}
         <motion.div 
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0], opacity: [0.4, 0.6, 0.4] }}
+          animate={{ scale: [1, 1.15, 1], rotate: [0, 90, 0], opacity: [0.35, 0.5, 0.35] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#FF4D00] mix-blend-multiply filter blur-[150px]"
+          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#FF4D00] mix-blend-multiply filter blur-[90px] transform-gpu will-change-transform"
         />
         {/* Cyan / Blue Glow */}
         <motion.div 
-          animate={{ scale: [1, 1.5, 1], rotate: [0, -90, 0], opacity: [0.3, 0.5, 0.3] }}
+          animate={{ scale: [1, 1.3, 1], rotate: [0, -90, 0], opacity: [0.25, 0.4, 0.25] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-[#00F0FF] mix-blend-multiply filter blur-[150px]"
+          className="absolute -bottom-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-[#00F0FF] mix-blend-multiply filter blur-[90px] transform-gpu will-change-transform"
         />
         {/* Purple Center Glow */}
         <motion.div 
-          animate={{ y: [0, -100, 0], opacity: [0.2, 0.4, 0.2] }}
+          animate={{ y: [0, -60, 0], opacity: [0.2, 0.35, 0.2] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[30%] left-[30%] w-[50vw] h-[50vw] rounded-full bg-[#7000FF] mix-blend-multiply filter blur-[150px]"
+          className="absolute top-[30%] left-[30%] w-[50vw] h-[50vw] rounded-full bg-[#7000FF] mix-blend-multiply filter blur-[90px] transform-gpu will-change-transform"
         />
       </motion.div>
 

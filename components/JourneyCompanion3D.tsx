@@ -91,7 +91,11 @@ function Model({ url, active, position = [0, -1.2, 0] }: { url: string, active: 
 export function JourneyCompanion3D({ step }: { step: number }) {
   return (
     <div className="w-full h-full pointer-events-none">
-      <Canvas camera={{ position: [0, 1, 4.5], fov: 40 }}>
+      <Canvas 
+        dpr={[1, 1.5]}
+        gl={{ powerPreference: "high-performance", antialias: true, stencil: false }}
+        camera={{ position: [0, 1, 4.5], fov: 40 }}
+      >
         <CameraController step={step} />
         
         {/* Cinematic Lighting */}
@@ -109,9 +113,12 @@ export function JourneyCompanion3D({ step }: { step: number }) {
         <Model url="/badminton.glb" active={step === 2} />
         <Model url="/work.glb" active={step >= 3} position={[1.5, -1.2, 0]} />
         
-        {/* Adds realistic shadow under the character */}
-        <ContactShadows position={[0, -1.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4} />
-        <ContactShadows position={[1.5, -1.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4} /> {/* Shadow for desk position */}
+        {/* Adds realistic shadow under the active character position */}
+        {step < 3 ? (
+          <ContactShadows position={[0, -1.2, 0]} opacity={0.6} scale={8} blur={2} far={3} />
+        ) : (
+          <ContactShadows position={[1.5, -1.2, 0]} opacity={0.6} scale={8} blur={2} far={3} />
+        )}
         
         <Environment preset="city" />
       </Canvas>
