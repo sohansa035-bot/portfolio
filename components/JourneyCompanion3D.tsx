@@ -88,8 +88,7 @@ function Model({ url, active, position = [0, -1.2, 0] }: { url: string, active: 
   );
 }
 
-const assetBasePath =
-  process.env.NODE_ENV === "production" ? "/portfolio" : "";
+const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function JourneyCompanion3D({ step }: { step: number }) {
   return (
