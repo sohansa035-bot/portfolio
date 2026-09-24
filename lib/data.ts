@@ -175,34 +175,5 @@ export const projectsData: ProjectItem[] = [
       demo: "During simulated flash flood surge events, the dashboard displays live sensor telemetry, dynamic 4-horizon risk heatmaps, uncertainty bounds that widen during sensor dropouts, and turn-by-turn evacuation corridors dynamically rerouting around predicted submerged road segments.",
       lessons: "In life-critical disaster systems, uncertainty quantification is as vital as the prediction itself. When sensor nodes fail during storms, the model must degrade gracefully, explicitly signaling confidence boundaries to disaster response teams."
     }
-  },
-  {
-    slug: "smps-tech-lab",
-    number: "08",
-    title: "SMPS TECH LAB",
-    role: "R&D AND TECHNOLOGY INNOVATION PLATFORM",
-    description:
-      "An R&D-focused technology platform exploring engineering innovation, intellectual property, and emerging technologies through practical product development.",
-    tech: ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS", "R&D"],
-    nodes: ["R&D", "IP Portfolio", "Engineering", "Innovation", "Technology"],
-    github: "https://github.com/sohansa035-bot/smps_",
-    caseStudy: "/build/smps-tech-lab",
-    accentColor: "#6366F1",
-    badgeBg: "bg-[#EEF2FF]",
-    color: "from-indigo-500/20 to-purple-500/0",
-    image:
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='100%25' height='100%25' fill='%23050505'/%3E%3Ccircle cx='400' cy='200' r='100' fill='none' stroke='%236366f1' stroke-width='1' stroke-dasharray='4'/%3E%3C/svg%3E",
-    content: {
-      problem:
-        "Engineering innovation often requires connecting research, intellectual property, and practical product development into a single technology ecosystem.",
-      architecture:
-        "The platform organizes technology initiatives, R&D activities, and intellectual property into a structured digital experience.",
-      development:
-        "The project focuses on presenting technical innovation through a responsive and modern web interface.",
-      demo:
-        "Visitors can explore the technology and innovation portfolio through structured project and R&D information.",
-      lessons:
-        "The project highlighted the importance of presenting complex engineering concepts clearly while maintaining a professional technical experience."
-    }
   }
 ];

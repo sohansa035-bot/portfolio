@@ -47,11 +47,6 @@ const colorMap: Record<string, ColorConfig> = {
     bg: "bg-[#FB4D04]", // Orange
     titleColor: "text-white",
     descColor: "text-white/95"
-  },
-  "smps-tech-lab": {
-    bg: "bg-[#6366F1]", // Indigo
-    titleColor: "text-white",
-    descColor: "text-white/95"
   }
 };
 
