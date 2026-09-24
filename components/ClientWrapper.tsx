@@ -87,8 +87,8 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
       <motion.div 
         className={loading ? 'h-screen overflow-hidden pointer-events-none' : ''}
         initial={{ clipPath: "circle(0% at 50% 50%)" }}
-        animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "none" }}
-        transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
+        animate={{ clipPath: loading ? "circle(0% at 50% 50%)" : "circle(150% at 50% 50%)" }}
+        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
       >
         {children}
       </motion.div>
