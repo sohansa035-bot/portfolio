@@ -9,16 +9,18 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export function generateStaticParams() {
-  return projectsData.map((project) => ({
-    slug: project.slug,
-  }));
+  return projectsData
+    .filter((project) => project.caseStudy && project.content)
+    .map((project) => ({
+      slug: project.slug,
+    }));
 }
 
 export default async function ProjectPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const project = projectsData.find((p) => p.slug === params.slug);
 
-  if (!project) {
+  if (!project || !project.content) {
     notFound();
   }
 
