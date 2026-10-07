@@ -16,22 +16,7 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   
   // The preloader will run strictly once per session.
-  // Check sessionStorage so navigating or clicking Home / Contact never triggers it again.
-  const [loading, setLoading] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        if (sessionStorage.getItem(PRELOADER_KEY) === "true") {
-          return false;
-        }
-        if (window.location.pathname !== "/" && !window.location.pathname.endsWith("/portfolio/")) {
-          return false;
-        }
-      } catch {
-        // Fallback if sessionStorage is restricted
-      }
-    }
-    return true;
-  });
+  const [loading, setLoading] = useState<boolean>(true);
   const [blueprintMode, setBlueprintMode] = useState(false);
 
   useEffect(() => {
